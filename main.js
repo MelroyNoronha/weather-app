@@ -1,3 +1,8 @@
+const userLocation = document.getElementById("userLocation");
+const temperature = document.getElementById("temperature");
+const weatherBtn = document.getElementById("weatherBtn");
+const celsius = document.getElementById("celsius");
+const fahrenhite = document.getElementById("fahrenhite");
 
 let userLat = "";
 
@@ -5,7 +10,7 @@ let userLon = "";
 
 let url = `https://fcc-weather-api.glitch.me/api/current?lat=${userLat}&lon=${userLon}`;
 
-window.onload = getLocation();
+
 
 function getLocation() {
   navigator.geolocation.getCurrentPosition(position => {
