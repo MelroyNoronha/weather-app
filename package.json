@@ -1,0 +1,19 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelroyNoronha/weather-app.git"
+  },
+  "author": "Melroy Noronha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MelroyNoronha/weather-app/issues"
+  },
+  "homepage": "https://github.com/MelroyNoronha/weather-app#readme"
+}

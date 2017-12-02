@@ -1,25 +1,24 @@
-const userLocation = document.getElementById("userLocation");
-const temperature = document.getElementById("temperature");
-const weatherBtn = document.getElementById("weatherBtn");
-const celsius = document.getElementById("celsius");
-const fahrenhite = document.getElementById("fahrenhite");
+var userLocation = document.getElementById("userLocation");
+var temperature = document.getElementById("temperature");
+var weatherBtn = document.getElementById("weatherBtn");
+var celsius = document.getElementById("celsius");
+var fahrenhite = document.getElementById("fahrenhite");
 
-let userLat = "";
+var userLat = "";
 
-let userLon = "";
+var userLon = "";
 
-let url = `https://fcc-weather-api.glitch.me/api/current?lat=${userLat}&lon=${userLon}`;
-
-
+var url = `https://fcc-weather-api.glitch.me/api/current?lat=${userLat}&lon=${userLon}`;
 
 function getLocation() {
-  navigator.geolocation.getCurrentPosition(position => {
+  navigator.geolocation.getCurrentPosition(function (position) {
     userLat = position.coords.latitude;
     userLon = position.coords.longitude;
   });
-  console.log(typeof (userLat))
-}
 
-fetch(url).then(response => {
-  console.log(response.json());
-});
+  console.log(typeof (userLat));//test
+
+  fetch(url).then(function (response) {
+    console.log(response.json());
+  });
+}
