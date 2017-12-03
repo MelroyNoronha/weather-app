@@ -1,8 +1,8 @@
-const userLocation = document.getElementById("userLocation");
-const weather = document.getElementById("weather");
+const userLocationDiv = document.getElementById("userLocation");
+const weatherDiv = document.getElementById("weather");
 const weatherBtn = document.getElementById("weatherBtn");
-const celsius = document.getElementById("celsius");
-const fahrenhite = document.getElementById("fahrenhite");
+const celsiusDiv = document.getElementById("celsius");
+const fahrenhiteDiv = document.getElementById("fahrenhite");
 
 let lat;
 let lon;
@@ -18,12 +18,22 @@ function getWeather() {
     .then(response => {
       response.json()
         .then(data => {
-          let weatherData = data.main;
-          let locationName = data.name;
-          weather.innerHTML = JSON.stringify(weatherData.temp);
-          userLocation.innerHTML = locationName;
+          console.log(data);
+          let temperature = data.main.temp;
+          let weather = data.weather[0].main;
+          let locationName = `${data.name}, ${data.sys.country}`;
+          weatherDiv.innerHTML = `${temperature} ${weather}`;
+          userLocationDiv.innerHTML = locationName;
         })
     })
+}
+
+function changeToFahrenhite(celsius) {
+  return celsius * 9 / 5 + 32;
+}
+
+function changeToCelsius(fahrenhite) {
+  return (fahrenhite - 32) * 5 / 9;
 }
 
 window.onload = getWeather();
