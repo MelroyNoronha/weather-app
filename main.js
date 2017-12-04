@@ -1,11 +1,16 @@
 const userLocationDiv = document.getElementById("userLocation");
 const weatherDiv = document.getElementById("weather");
 const weatherBtn = document.getElementById("weatherBtn");
-const celsiusDiv = document.getElementById("celsius");
-const fahrenhiteDiv = document.getElementById("fahrenhite");
+const temperatureDiv = document.getElementById("temperatureDiv");
+const celsiusDiv = document.getElementById("celsiusDiv");
+const fahrenhiteDiv = document.getElementById("fahrenhiteDiv");
 
 let lat;
 let lon;
+let temperature;
+let weather;
+let locationName;
+let weatherIcon;
 
 function getWeather() {
   navigator.geolocation.getCurrentPosition(position => {
@@ -19,17 +24,25 @@ function getWeather() {
       response.json()
         .then(data => {
           console.log(data);
-          let temperature = data.main.temp;
-          let weather = data.weather[0].main;
-          let locationName = `${data.name}, ${data.sys.country}`;
-          weatherDiv.innerHTML = `${temperature} ${weather}`;
+          temperature = data.main.temp;
+          weather = data.weather[0].main;
+          weatherIcon = data.weather[0].icon;
+          locationName = `${data.name}, ${data.sys.country}`;
+          weatherDiv.innerHTML = `${weather} <img src=${weatherIcon}/>`;
           userLocationDiv.innerHTML = locationName;
+          temperatureDiv.innerHTML = `${temperature}`
         })
     })
+
+  celsiusDiv.addEventListener('click', () => {
+    changeToCelsius(temperature)
+  })
 }
 
 function changeToFahrenhite(celsius) {
-  return celsius * 9 / 5 + 32;
+  celsius * 9 / 5 + 32;
+  temperature = celsius;
+  console.log(temperature);
 }
 
 function changeToCelsius(fahrenhite) {

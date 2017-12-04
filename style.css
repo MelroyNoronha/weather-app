@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body{
+    margin: 0px;
+}
+
+#userLocation{
+    position: absolute;
+    top: 10vh;
+    left: 35vw;
+    font-size: 8vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#temperatureDiv{
+    position: absolute;
+    top: 30vh;
+    left: 45vw;
+    font-size: 5vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#weather{
+    position: absolute;
+    top: 45vh;
+    left: 45vw;
+    font-size: 4vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#celsiusDiv{
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+    font-size: 4vw;
+    font-family: 'Source Sans Pro', sans-serif; 
+}
+
+#fahrenhiteDiv{
+    position: absolute;
+    top: 30vh;
+    left: 70vw;
+    font-size: 4vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#weatherBtn{
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 65vh;
+    left: 40vw;
+    font-size: 5vw;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 0.3vw solid black;
+    padding: 10px;
+}
