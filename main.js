@@ -1,12 +1,14 @@
 const userLocationDiv = document.getElementById("userLocation");
 const weatherDiv = document.getElementById("weather");
 const temperatureDiv = document.getElementById("temperatureDiv");
-const celsiusDiv = document.getElementById("celsiusDiv");
-const fahrenhiteDiv = document.getElementById("fahrenhiteDiv");
+const defaultUnit = document.getElementById("defaultUnit");
+const optionalUnit = document.getElementById("optionalUnit");
 
 let lat = null;
 let lon = null;
 let temperature;
+let celsius;
+let fahrenhite;
 let weather;
 let locationName;
 let weatherIcon;
@@ -17,44 +19,52 @@ function getLocation() {
     lon = position.coords.longitude;
 
     if (lat !== null && lon !== null) {
-      getWeather();
+      updateWeather();
     }
   });
 }
 
 
-function getWeather() {
+function updateWeather() {
   let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${lon}`;
   fetch(url)
     .then(response => {
       response.json()
         .then(data => {
-          console.log(data);
+
           temperature = data.main.temp;
           weather = data.weather[0].main;
           weatherIcon = data.weather[0].icon;
           locationName = `${data.name}, ${data.sys.country}`;
-          weatherDiv.innerHTML = `${weather} <img src=${weatherIcon}/>`;
+
           userLocationDiv.innerHTML = locationName;
-          temperatureDiv.innerHTML = `${temperature}`
+          temperatureDiv.innerHTML = `${temperature}<sup>o</sup>`
+          weatherDiv.innerHTML = ` <img src=${weatherIcon}/> ${weather}`;
         })
     })
 }
 
-function changeToFahrenhite(celsius) {
-  celsius * 9 / 5 + 32;
+function changeToCelsius(string) {
+  celsius = string;
+  temperatureDiv.innerHTML = `${celsius}<sup>o</sup>`;
 }
 
-function changeToCelsius(fahrenhite) {
-  return (fahrenhite - 32) * 5 / 9;
+function changeToFahrenhite(string) {
+  fahrenhite = Number(string) * 9 / 5 + 32;
+  temperatureDiv.innerHTML = `${fahrenhite}<sup>o</sup>`;
 }
 
 window.onload = getLocation();
 
-celsiusDiv.addEventListener('click', () => {
-  changeToCelsius(temperature)
+//temp
+defaultUnit.addEventListener('click', () => {
+  changeToCelsius(temperature);
+  defaultUnit.className = "selectedState";
+  optionalUnit.className = "";
 })
 
-fahrenhiteDiv.addEventListener('click', () => {
-  changeToFahrenhite(temperature)
+optionalUnit.addEventListener('click', () => {
+  changeToFahrenhite(temperature);
+  optionalUnit.className = "selectedState";
+  defaultUnit.className = "";
 })

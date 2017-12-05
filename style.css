@@ -14,10 +14,28 @@ body{
 
 #temperatureDiv{
     position: absolute;
-    top: 40vh;
-    left: 35vw;
-    font-size: 5vw;
+    top: 35vh;
+    left: 40vw;
+    font-size: 8vw;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+#defaultUnit{
+    position: absolute;
+    top: 37vh;
+    left: 60vw;
+    font-size: 8vw;
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
+}
+
+#optionalUnit{
+    position: absolute;
+    top: 37vh;
+    left: 72vw;
+    font-size: 8vw;
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
 }
 
 #weather{
@@ -28,26 +46,9 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-#celsiusDiv{
-    position: absolute;
-    top: 40vh;
-    left: 50vw;
-    font-size: 4vw;
-    font-family: 'Source Sans Pro', sans-serif;
-    border: 2px solid black;
-    padding-left: 15px;
-    padding-right: 15px;
-    cursor: pointer;  
-}
-
-#fahrenhiteDiv{
-    position: absolute;
-    top: 40vh;
-    left: 60vw;
-    font-size: 4vw;
-    font-family: 'Source Sans Pro', sans-serif;
-    border: 2px solid black;
-    padding-left: 15px;
-    padding-right: 15px; 
-    cursor: pointer;
+.selectedState{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: grey;
+    transition: .3s ease-in;
 }
