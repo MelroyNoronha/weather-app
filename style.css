@@ -15,15 +15,18 @@ body{
 #temperatureDiv{
     position: absolute;
     top: 35vh;
-    left: 40vw;
+    left: 35vw;
     font-size: 8vw;
     font-family: 'Source Sans Pro', sans-serif;
+    transition: .3s ease;
 }
 
 #defaultUnit{
     position: absolute;
     top: 37vh;
-    left: 60vw;
+    left: 55vw;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 8vw;
     font-family: 'Source Sans Pro', sans-serif;
     cursor: pointer;
@@ -32,7 +35,9 @@ body{
 #optionalUnit{
     position: absolute;
     top: 37vh;
-    left: 72vw;
+    left: 65vw;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 8vw;
     font-family: 'Source Sans Pro', sans-serif;
     cursor: pointer;
@@ -41,14 +46,63 @@ body{
 #weather{
     position: absolute;
     top: 60vh;
-    left: 45vw;
-    font-size: 4vw;
+    left: 40vw;
+    font-size: 5vw;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 .selectedState{
-    padding-left: 20px;
-    padding-right: 20px;
     background-color: grey;
-    transition: .3s ease-in;
+    transition: 0.4s ease-in;
+}
+
+@media screen and (max-width: 600px){
+    
+    #userLocation{
+        position: absolute;
+        top: 10vh;
+        left: 20vw;
+        font-size: 15vw;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+        
+    #temperatureDiv{
+        position: absolute;
+        top: 25vh;
+        left: 20vw;
+        font-size: 15vw;
+        font-family: 'Source Sans Pro', sans-serif;
+        transition: .3s ease;
+    }
+
+    #defaultUnit{
+        position: absolute;
+        top: 26vh;
+        left: 60vw;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15vw;
+        font-family: 'Source Sans Pro', sans-serif;
+        cursor: pointer;
+    }
+
+    #optionalUnit{
+        position: absolute;
+        top: 26vh;
+        left: 75vw;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15vw;
+        font-family: 'Source Sans Pro', sans-serif;
+        cursor: pointer;
+    }
+
+    #weather{
+        position: absolute;
+        top: 45vh;
+        left: 27vw;
+        font-size: 10vw;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
 }
