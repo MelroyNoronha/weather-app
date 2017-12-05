@@ -14,15 +14,15 @@ body{
 
 #temperatureDiv{
     position: absolute;
-    top: 30vh;
-    left: 45vw;
+    top: 40vh;
+    left: 35vw;
     font-size: 5vw;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 #weather{
     position: absolute;
-    top: 45vh;
+    top: 60vh;
     left: 45vw;
     font-size: 4vw;
     font-family: 'Source Sans Pro', sans-serif;
@@ -30,28 +30,24 @@ body{
 
 #celsiusDiv{
     position: absolute;
-    top: 30vh;
-    left: 60vw;
+    top: 40vh;
+    left: 50vw;
     font-size: 4vw;
-    font-family: 'Source Sans Pro', sans-serif; 
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 2px solid black;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;  
 }
 
 #fahrenhiteDiv{
     position: absolute;
-    top: 30vh;
-    left: 70vw;
+    top: 40vh;
+    left: 60vw;
     font-size: 4vw;
     font-family: 'Source Sans Pro', sans-serif;
-}
-
-#weatherBtn{
-    all: unset;
+    border: 2px solid black;
+    padding-left: 15px;
+    padding-right: 15px; 
     cursor: pointer;
-    position: absolute;
-    top: 65vh;
-    left: 40vw;
-    font-size: 5vw;
-    font-family: 'Source Sans Pro', sans-serif;
-    border: 0.3vw solid black;
-    padding: 10px;
 }

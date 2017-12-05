@@ -1,23 +1,29 @@
 const userLocationDiv = document.getElementById("userLocation");
 const weatherDiv = document.getElementById("weather");
-const weatherBtn = document.getElementById("weatherBtn");
 const temperatureDiv = document.getElementById("temperatureDiv");
 const celsiusDiv = document.getElementById("celsiusDiv");
 const fahrenhiteDiv = document.getElementById("fahrenhiteDiv");
 
-let lat;
-let lon;
+let lat = null;
+let lon = null;
 let temperature;
 let weather;
 let locationName;
 let weatherIcon;
 
-function getWeather() {
+function getLocation() {
   navigator.geolocation.getCurrentPosition(position => {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-  });
 
+    if (lat !== null && lon !== null) {
+      getWeather();
+    }
+  });
+}
+
+
+function getWeather() {
   let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${lon}`;
   fetch(url)
     .then(response => {
@@ -33,21 +39,22 @@ function getWeather() {
           temperatureDiv.innerHTML = `${temperature}`
         })
     })
-
-  celsiusDiv.addEventListener('click', () => {
-    changeToCelsius(temperature)
-  })
 }
 
 function changeToFahrenhite(celsius) {
   celsius * 9 / 5 + 32;
-  temperature = celsius;
-  console.log(temperature);
 }
 
 function changeToCelsius(fahrenhite) {
   return (fahrenhite - 32) * 5 / 9;
 }
 
-window.onload = getWeather();
-weatherBtn.addEventListener('click', getWeather);
+window.onload = getLocation();
+
+celsiusDiv.addEventListener('click', () => {
+  changeToCelsius(temperature)
+})
+
+fahrenhiteDiv.addEventListener('click', () => {
+  changeToFahrenhite(temperature)
+})
