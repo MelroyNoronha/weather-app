@@ -1,0 +1,2 @@
+#App that shows local weather
+###Contributions are welcome.They may include corrections and/or new features.Just create pull request with a good description of changes.Please lint your code before a pull request.
