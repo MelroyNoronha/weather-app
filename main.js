@@ -35,7 +35,7 @@ function getLocation() {
   });
 }
 
-
+//updates weather from the fcc-weather api using fetch and applies changes to html accordingly
 function updateWeather(lat, lon) {
   let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${lon}`;
   fetch(url)
@@ -55,40 +55,44 @@ function updateWeather(lat, lon) {
     })
 }
 
-function changeToCelsius(string) {
-  celsius = Number(string);
+//converts temperature to celsius
+function convertToCelsius(temperatureString) {
+  celsius = Number(temperatureString);
   temperatureDiv.innerHTML = `${celsius}<sup>o</sup>`;
 }
 
-function changeToFahrenhite(string) {
-  fahrenhite = Number(string) * 9 / 5 + 32;
+//converts temperature to fahrenhite
+function convertToFahrenhite(temperatureString) {
+  fahrenhite = Number(temperatureString) * 9 / 5 + 32;
   temperatureDiv.innerHTML = `${fahrenhite}<sup>o</sup>`;
 }
 
 //function calls and running code
+
+//get location on page load
 window.onload = getLocation();
 
-// listen for click on the Celsius div and call changeToCelsius()
+// listen for click on the Celsius div and call convertToCelsius()
 defaultUnit.addEventListener('click', () => {
-  changeToCelsius(temperature);
+  convertToCelsius(temperature);
   defaultUnit.className = "selectedState";
   optionalUnit.className = "";
 })
 
-// listen for click on the Fahrenhite div and call changeToFahrenhite()
+// listen for click on the Fahrenhite div and call convertToFahrenhite()
 optionalUnit.addEventListener('click', () => {
-  changeToFahrenhite(temperature);
+  convertToFahrenhite(temperature);
   optionalUnit.className = "selectedState";
   defaultUnit.className = "";
 })
 
 // change color based on the temperature
-if (Number(temperature) > 20 < 35) {
+if (temperature > 20 < 35) {
   document.body.style = `background-color:${weatherColors.warm}`;
-} else if (Number(temperature) < 35) {
+} else if (temperature < 35) {
   document.body.style = `background-color:${weatherColors.hot}`;
-} else if (Number(temperature) < 20 > 10) {
+} else if (temperature < 20 > 10) {
   document.body.style = `background-color:${weatherColors.chill}`;
-} else if (Number(temperature) < 10) {
+} else if (temperature < 10) {
   document.body.style = `background-color:${weatherColors.cold}`;
 }
