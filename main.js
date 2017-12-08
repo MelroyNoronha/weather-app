@@ -22,7 +22,6 @@ let weatherColors = {
 }
 
 //function definitions
-
 //gets location of user and calls update weather
 function getLocation() {
   navigator.geolocation.getCurrentPosition(position => {
@@ -42,8 +41,8 @@ function updateWeather(lat, lon) {
     .then(response => {
       response.json()
         .then(data => {
-
           temperature = data.main.temp;
+          temperature = Math.round(temperature);
           weather = data.weather[0].main;
           weatherIcon = data.weather[0].icon;
           locationName = `${data.name}, ${data.sys.country}`;
@@ -51,6 +50,8 @@ function updateWeather(lat, lon) {
           userLocationDiv.innerHTML = locationName;
           temperatureDiv.innerHTML = `${temperature}<sup>o</sup>`
           weatherDiv.innerHTML = ` <img src=${weatherIcon}/> ${weather}`;
+          defaultUnit.innerHTML = `C`;
+          optionalUnit.innerHTML = `F`;
         })
     })
 }
@@ -69,7 +70,7 @@ function convertToFahrenhite(temperatureString) {
 
 //function calls and running code
 
-//get location on page load
+//getLocation() on page load
 window.onload = getLocation();
 
 // listen for click on the Celsius div and call convertToCelsius()
