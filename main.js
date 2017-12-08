@@ -71,6 +71,7 @@ function convertToFahrenhite(temperatureString) {
 //function calls and running code
 
 //getLocation() on page load
+window.onload = alert("Please turn on location to get local weather");
 window.onload = getLocation();
 
 // listen for click on the Celsius div and call convertToCelsius()
