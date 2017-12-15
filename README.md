@@ -1,2 +1,2 @@
-#App that shows local weather
-###Contributions are welcome.They may include corrections and/or new features.Just create pull request with a good description of changes.Please lint your code before a pull request.
+# App that shows local weather
+### Contributions are welcome. They may include corrections and/or new features. Just create a pull request with a good description of the changes you've made. Please lint your code before a pull request.
